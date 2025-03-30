@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Genesis Evangelion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-purple: #9d00ff;
+            --neon-green: #00ff9d;
+            --neon-pink: #ff00a0;
+            --neon-blue: #00a2ff;
+            --neon-red: #ff003c;
+            --neon-yellow: #ffff00;
+            --neon-orange: #ff7f00;
+            --neon-white: #FFFFFF;
+
+
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #000;
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .text-neon-purple {
+            color: var(--neon-purple);
+            text-shadow: 0 0 10px var(--neon-purple);
+        }
+
+        .text-neon-orange {
+            color: var(--neon-orange);
+            text-shadow: 0 0 10px var(--neon-orange);
+        }
+
+        .text-neon-white {
+            color: var(--neon-white);
+            text-shadow: 0 0 10px var(--neon-white);
+        }
+
+        .text-neon-yellow {
+            color: var(--neon-yellow);
+            text-shadow: 0 0 10px var(--neon-yellow);
+        }
+        
+        .text-neon-green {
+            color: var(--neon-green);
+            text-shadow: 0 0 10px var(--neon-green);
+        }
+        
+        .text-neon-pink {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+        
+        .text-neon-blue {
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+        
+        .text-neon-red {
+            color: var(--neon-red);
+            text-shadow: 0 0 10px var(--neon-red);
+        }
+        
+        .neon-border {
+            border: 2px solid var(--neon-purple);
+            box-shadow: 0 0 10px var(--neon-purple);
+        }
+        
+        .neon-border-green {
+            border: 2px solid var(--neon-green);
+            box-shadow: 0 0 10px var(--neon-green);
+        }
+
+        .neon-border-lilac  {
+            border: 2px solid var(--neon-lilac);
+            box-shadow: 0 0 10px var(--neon-lilac);
+        }
+
+        .neon-border-purple {
+            border: 2px solid var(--neon-purple);
+            box-shadow: 0 0 10px var(--neon-purple);
+        }
+        
+        .neon-border-blue {
+            border: 2px solid var(--neon-blue);
+            box-shadow: 0 0 10px var(--neon-blue);
+        }
+        
+        .neon-border-red {
+            border: 2px solid var(--neon-red);
+            box-shadow: 0 0 10px var(--neon-red);
+        }
+
+        .neon-border-white {
+            border: 3px solid #FFFFFF;
+            box-shadow: 0 0 10px #FFFFFF;
+        }
+
+        .neon-border-yellow {
+            border: 3px solid #ffff00;
+            box-shadow: 0 0 10px #ffff00;
+        }
+
+        .neon-border-blueblack {
+            border: 3px solid #0000ff;
+            box-shadow: 0 0 10px #0000ff;
+        }
+        
+        .neon-border-orange {
+            border: 3px solid #ff7f00;
+            box-shadow: 0 0 10px #ff7f00;
+        }
+        
+        .glitch {
+            position: relative;
+        }
+        
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .glitch::before {
+            left: 2px;
+            text-shadow: -2px 0 var(--neon-pink);
+            animation: glitch-anim 2s infinite linear alternate-reverse;
+        }
+        
+        .glitch::after {
+            left: -2px;
+            text-shadow: -2px 0 var(--neon-blue);
+            animation: glitch-anim 1s infinite linear alternate-reverse;
+        }
+        
+        @keyframes glitch-anim {
+            0% { clip: rect(32px, 9999px, 12px, 0); }
+            20% { clip: rect(72px, 9999px, 52px, 0); }
+            40% { clip: rect(42px, 9999px, 32px, 0); }
+            60% { clip: rect(82px, 9999px, 72px, 0); }
+            80% { clip: rect(92px, 9999px, 98px, 0); }
+            100% { clip: rect(3px, 9999px, 92px, 0); }
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .eva-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://poltronanerd.com.br/wp-content/uploads/2019/06/poltrona-neon_genesis_evangelion.0.jpg');
+        }
+        
+        .character-card {
+            transition: all 0.3s ease;
+            background: rgba(0,0,0,0.7);
+        }
+        
+        .character-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(157, 0, 255, 0.5);
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 157, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(0, 255, 157, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 157, 0); }
+        }
+
+        /* Efeito de loading para imagens */
+        .image-loading {
+            background: linear-gradient(90deg, #111, #222, #111);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+        
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        
+        .radar {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            border: 2px solid var(--neon-green);
+            border-radius: 50%;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+
+        .radar::before {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            background: linear-gradient(transparent, rgba(0, 255, 157, 0.1));
+            border-radius: 100% 0 0 0;
+            animation: radar-rotate 4s linear infinite;
+            transform-origin: right bottom;
+        }
+
+        .angel-dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--neon-pink);
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes radar-rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .angel-card {
+            transition: all 0.3s ease;
+            background: rgba(0,0,0,0.7);
+        }
+
+        .angel-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(255, 0, 60, 0.5);
+        }
+
+        .terminal-button {
+            transition: all 0.2s ease;
+        }
+
+        .terminal-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Barra de sincronização melhorada */
+        .sync-container {
+            width: 100%;
+            height: 8px;
+            background-color: #333;
+            border-radius: 4px;
+            margin-top: 12px;
+            overflow: hidden;
+        }
+        
+        .sync-bar {
+            height: 100%;
+            border-radius: 4px;
+            width: 0;
+            transition: width 1.5s ease-out;
+            position: relative;
+        }
+        
+        .sync-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                            rgba(255,255,255,0.3) 0%, 
+                            rgba(255,255,255,0.5) 50%, 
+                            rgba(255,255,255,0.3) 100%);
+            animation: shine 2s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .sync-text {
+            font-size: 0.75rem;
+            margin-top: 4px;
+            text-align: center;
+        }
+        
+        /* Cores das barras por personagem */
+        .sync-purple { background-color: var(--neon-purple); }
+        .sync-green { background-color: var(--neon-green); }
+        .sync-pink { background-color: var(--neon-pink); }
+        .sync-blue { background-color: var(--neon-blue); }
+        .sync-red { background-color: var(--neon-red); }
+        .sync-white { background-color: var(--neon-white); }
+        .sync-orange { background-color: var(--neon-orange); }
+        .sync-yellow { background-color: var(--neon-yellow); }
+        .sync-lilac { background-color: var(--neon-lilac); }
+
+        /* Mobile-first adjustments */
+        @media (min-width: 640px) {
+            .radar {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .angel-dot {
+                width: 10px;
+                height: 10px;
+            }
+        }
+        
+        /* Centralização geral */
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Melhor espaçamento para mobile */
+        .mobile-spacing {
+            padding: 3rem 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .mobile-spacing {
+                padding: 4rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="eva-bg parallax">
+    <audio id="openingAudio" loop>
+        <source src="eva_opening.mp3" type="audio/mpeg">
+    </audio>
+    
+    <!-- Botão de áudio -->
+    <button id="audioControl" class="fixed bottom-4 right-4 z-50 bg-black text-neon-green p-3 rounded-full neon-border hover:bg-purple-900 transition-all">
+        <i class="fas fa-volume-up text-xl"></i>
+    </button>
+    
+    <!-- Cabeçalho -->
+    <header class="text-center py-12 md:py-16 relative overflow-hidden mobile-spacing">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="relative z-10 section-container">
+            <h1 class="text-4xl md:text-6xl font-bold orbitron glitch mb-6" data-text="NEON GENESIS EVANGELION">NEON GENESIS EVANGELION</h1>
+            <p class="text-lg md:text-2xl text-neon-green orbitron typing-effect inline-block"></p>
+            <p class="text-lg md:text-2xl text-neon-purple mt-4">O destino da destruição é também a alegria do renascimento</p>
+            
+            <!-- Contador LCL -->
+            <div class="mt-8 flex justify-center">
+                <div class="neon-border-orange p-4 rounded-lg text-center">
+                    <p class="text-neon-orange orbitron">Contador LCL</p>
+                    <p id="lclCounter" class="text-3xl text-neon-orange orbitron">0000</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Seção Sobre -->
+    <section class="bg-black bg-opacity-80 mobile-spacing">
+        <div class="section-container">
+            <h2 class="text-2xl md:text-4xl text-center text-neon-purple orbitron mb-8 md:mb-12">SOBRE A SÉRIE</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
+                <div class="order-2 md:order-1">
+                    <p class="text-base md:text-lg mb-4 md:mb-6 text-center md:text-left">
+                        Neon Genesis Evangelion é uma influente série de anime mecha japonesa criada por Hideaki Anno e produzida pelo estúdio Gainax. Lançada em 1995, a trama se passa em um mundo pós-apocalíptico após o cataclísmico Segundo Impacto, onde a organização secreta NERV recruta adolescentes para pilotar os gigantescos Evangelions e combater ameaças conhecidas como Angels. O protagonista, Shinji Ikari, um jovem de 14 anos, enfrenta batalhas não apenas contra esses inimigos misteriosos, mas também contra seus próprios traumas e conflitos internos. Com temáticas psicológicas, filosóficas e religiosas, Evangelion se tornou um marco na cultura pop, inspirando diversas obras e debates até os dias de hoje.
+                    </p>
+                    <p class="text-base md:text-lg mb-4 md:mb-6 text-center md:text-left">
+                        A série desconstrói o gênero mecha enquanto explora temas profundos de existencialismo, depressão, trauma e conexão humana. Sua profundidade psicológica e personagens complexos revolucionaram o anime e consolidaram seu status como uma das obras mais influentes do meio.
+                    </p>
+                    <div class="flex flex-wrap gap-2 md:gap-4 justify-center md:justify-start">
+                        <span class="px-3 py-1 md:px-4 md:py-2 bg-purple-900 text-neon-green rounded-full text-sm">Mecha</span>
+                        <span class="px-3 py-1 md:px-4 md:py-2 bg-purple-900 text-neon-green rounded-full text-sm">Psicológico</span>
+                        <span class="px-3 py-1 md:px-4 md:py-2 bg-purple-900 text-neon-green rounded-full text-sm">Ficção científica</span>
+                        <span class="px-3 py-1 md:px-4 md:py-2 bg-purple-900 text-neon-green rounded-full text-sm">Drama</span>
+                        <span class="px-3 py-1 md:px-4 md:py-2 bg-purple-900 text-neon-green rounded-full text-sm">Filosófico</span>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2 flex justify-center">
+                    <div class="neon-border p-2 rounded-lg max-w-md">
+                        <img src="https://poltronanerd.com.br/wp-content/uploads/2019/06/poltrona-neon_genesis_evangelion.0.jpg" 
+                            alt="Neon Genesis Evangelion" 
+                            class="rounded-lg w-full h-auto object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Personagens -->
+<section class="bg-black bg-opacity-80 mobile-spacing">
+    <div class="section-container">
+        <h2 class="text-2xl md:text-4xl text-center text-neon-purple orbitron mb-8 md:mb-12">PERSONAGENS</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+            <!-- Shinji Ikari -->
+            <div class="character-card rounded-lg overflow-hidden neon-border-green p-4 md:p-6 flex flex-col items-center">
+                <div class="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden neon-border-green mb-3 md:mb-4">
+                    <img src="https://wiki.evageeks.org/images/thumb/c/ca/26_C343_shinji-grin.jpg/260px-26_C343_shinji-grin.jpg" 
+                        alt="Shinji Ikari" 
+                        class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-lg md:text-xl text-neon-green orbitron mb-1 md:mb-2 text-center">Shinji Ikari</h3>
+                <p class="text-neon-green mb-1 md:mb-2 text-center">Piloto da Eva-01</p>
+                <p class="text-center text-xs md:text-sm">Shinji é um jovem de 14 anos, carregando profundas questões emocionais e um relacionamento conturbado com seu pai, Gendo. Sua jornada envolve autodescoberta, luta interna e sua resistência a aceitar seu papel como piloto da EVA-01.</p>
+                <div class="sync-container">
+                    <div class="sync-bar sync-green" data-percent="70"></div>
+                </div>
+                <p class="sync-text text-neon-green">Sincronização: <span class="sync-value">0</span>%</p>
+            </div>
+
+            <!-- Rei Ayanami -->
+            <div class="character-card rounded-lg overflow-hidden neon-border-blue p-4 md:p-6 flex flex-col items-center">
+                <div class="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden neon-border-blue mb-3 md:mb-4">
+                    <img src="https://i.pinimg.com/736x/83/4e/59/834e59cfe7893b61e758d7d0f036b3d1.jpg" 
+                        alt="Rei Ayanami" 
+                        class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-lg md:text-xl text-neon-blue orbitron mb-1 md:mb-2 text-center">Rei Ayanami</h3>
+                <p class="text-neon-blue mb-1 md:mb-2 text-center">Piloto da Eva-00</p>
+                <p class="text-center text-xs md:text-sm">A Primeira Criança, Rei é uma figura enigmática e reservada, com pouca expressão emocional. Sua conexão com o Projeto de Instrumentalidade e com Shinji torna-se central para os eventos que se desenrolam ao longo da série.</p>
+                <div class="sync-container">
+                    <div class="sync-bar sync-blue" data-percent="60"></div>
+                </div>
+                <p class="sync-text text-neon-blue">Sincronização: <span class="sync-value">0</span>%</p>
+            </div>
+
+            <!-- Asuka Langley Soryu -->
+            <div class="character-card rounded-lg overflow-hidden neon-border-red p-4 md:p-6 flex flex-col items-center">
+                <div class="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden neon-border-red mb-3 md:mb-4">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAhPacmeRuZyVDrxI_LHYDlKOXeKiryLbsQ&s" 
+                        alt="Asuka Langley" 
+                        class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-lg md:text-xl text-neon-red orbitron mb-1 md:mb-2 text-center">Asuka Langley Soryu</h3>
+                <p class="text-neon-red mb-1 md:mb-2 text-center">Piloto da Eva-02</p>
+                <p class="text-center text-xs md:text-sm">Asuka é uma talentosa e ousada piloto da EVA-02, mas seu temperamento explosivo e passado traumático influenciam suas relações e a forma como lida com os desafios. Seu orgulho e desejo de ser reconhecida são fortes motoras de sua personalidade.</p>
+                <div class="sync-container">
+                    <div class="sync-bar sync-red" data-percent="85"></div>
+                </div>
+                <p class="sync-text text-neon-red">Sincronização: <span class="sync-value">0</span>%</p>
+            </div>
+
+            <!-- Misato Katsuragi -->
+            <div class="character-card rounded-lg overflow-hidden neon-border-purple p-4 md:p-6 flex flex-col items-center">
+                <div class="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden neon-border mb-3 md:mb-4">
+                    <img src="https://i.pinimg.com/736x/45/03/9a/45039a93b522c802076da57426abe8dc.jpg" 
+                        alt="Misato Katsuragi" 
+                        class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-lg md:text-xl text-neon-purple orbitron mb-1 md:mb-2 text-center">Misato Katsuragi</h3>
+                <p class="text-neon-purple mb-1 md:mb-2 text-center">Comandante de Operações</p>
+                <p class="text-center text-xs md:text-sm">Misato é a comandante de operações da NERV, sendo uma estrategista habilidosa nas batalhas contra os Anjos. Ela se torna mentora e figura maternal para Shinji, enquanto tenta equilibrar sua vida pessoal e responsabilidades profissionais.</p>
+                <div class="sync-container">
+                    <div class="sync-bar sync-purple" data-percent="90"></div>
+                </div>
+                <p class="sync-text text-neon-purple">Eficiência: <span class="sync-value">0</span>%</p>
+            </div>
+
+            <!-- Gendo Ikari -->
+            <div class="character-card rounded-lg overflow-hidden neon-border-orange p-4 md:p-6 flex flex-col items-center">
+                <div class="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-orange-500 mb-3 md:mb-4">
+                    <img src="https://i.pinimg.com/originals/19/76/d7/1976d74c15335ddcfc6cc28437823538.png" 
+                        alt="Gendo Ikari" 
+                        class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-lg md:text-xl text-neon-white orbitron mb-1 md:mb-2 text-center">Gendo Ikari</h3>
+                <p class="text-neon-orange mb-1 md:mb-2 text-center">Comandante da NERV</p>
+                <p class="text-center text-xs md:text-sm">Gendo é o comandante da NERV, um homem distante e calculista, cujas motivações estão profundamente ligadas ao Projeto de Instrumentalidade Humana. Seu relacionamento com Shinji é tenso, marcado por abandono e uma busca insaciável por seus próprios objetivos.</p>
+                <div class="sync-container">
+                    <div class="sync-bar sync-orange" data-percent="95"></div>
+                </div>
+                <p class="sync-text text-neon-orange">Controle: <span class="sync-value">0</span>%</p>
+            </div>
+
+            <!-- Ritsuko Akagi -->
+            <div class="character-card rounded-lg overflow-hidden neon-border-yellow p-4 md:p-6 flex flex-col items-center">
+                <div class="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden neon-border mb-3 md:mb-4">
+                    <img src="https://i.pinimg.com/736x/7a/07/74/7a0774bc9c093b1129c53911618290d6.jpg" 
+                        alt="Ritsuko Akagi" 
+                        class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-lg md:text-xl text-neon-white orbitron mb-1 md:mb-2 text-center">Ritsuko Akagi</h3>
+                <p class="text-neon-yellow mb-1 md:mb-2 text-center">Chefe Científica</p>
+                <p class="text-center text-xs md:text-sm">Ritsuko é a chefe científica da NERV, responsável pelo desenvolvimento e manutenção das Evas. Sua inteligência e dedicação são frequentemente desafiadas pela pressão de seu trabalho e por sua relação com sua mãe, Naoko.</p>
+                <div class="sync-container">
+                    <div class="sync-bar sync-yellow" data-percent="88"></div>
+                </div>
+                <p class="sync-text text-neon-yellow">Conhecimento: <span class="sync-value">0</span>%</p>
+            </div>
+
+            <!-- Kaworu Nagisa -->
+            <div class="character-card rounded-lg overflow-hidden neon-border-white p-4 md:p-6 flex flex-col items-center">
+                <div class="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden neon-border-white mb-3 md:mb-4">
+                    <img src="https://pbs.twimg.com/media/FDDizX3XoAQ77wC.jpg" 
+                        alt="Kaworu Nagisa" 
+                        class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-lg md:text-xl text-neon-white orbitron mb-1 md:mb-2 text-center">Kaworu Nagisa</h3>
+                <p class="text-neon-white mb-1 md:mb-2 text-center">Quinta Criança</p>
+                <p class="text-center text-xs md:text-sm">Kaworu é a Quinta Criança e possui uma presença misteriosa e única. Sua conexão com Shinji é profunda e significativa, trazendo à tona questões sobre identidade, destino e a natureza dos sentimentos humanos.</p>
+                <div class="sync-container">
+                    <div class="sync-bar sync-white" data-percent="99"></div>
+                </div>
+                <p class="sync-text text-neon-white">Sincronização: <span class="sync-value">0</span>%</p>
+            </div>
+
+            <!-- Toji Suzuhara -->
+            <div class="character-card rounded-lg overflow-hidden neon-border-green p-4 md:p-6 flex flex-col items-center">
+                <div class="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden neon-border-green mb-3 md:mb-4">
+                    <img src="https://i.pinimg.com/474x/18/91/25/189125674726558ec877e26e383fa678.jpg" 
+                        alt="Toji Suzuhara" 
+                        class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-lg md:text-xl text-neon-green orbitron mb-1 md:mb-2 text-center">Toji Suzuhara</h3>
+                <p class="text-neon-green mb-1 md:mb-2 text-center">Quarta Criança</p>
+                <p class="text-center text-xs md:text-sm">Toji é um colega de classe de Shinji que, após uma série de eventos trágicos, se torna piloto reserva da EVA. Embora inicialmente seja visto como antagonista, sua trajetória revela as dificuldades de um jovem em meio à guerra contra os Anjos.</p>
+                <div class="sync-container">
+                    <div class="sync-bar sync-green" data-percent="45"></div>
+                </div>
+                <p class="sync-text text-neon-green">Sincronização: <span class="sync-value">0</span>%</p>
+            </div>
+
+            <!-- Kensuke Aida -->
+            <div class="character-card rounded-lg overflow-hidden neon-border-green p-4 md:p-6 flex flex-col items-center">
+                <div class="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden neon-border-green mb-3 md:mb-4">
+                    <img src="https://pbs.twimg.com/media/FWbZ4M0aQAEgEHI.jpg" 
+                        alt="Kensuke Aida" 
+                        class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-lg md:text-xl text-neon-green orbitron mb-1 md:mb-2 text-center">Kensuke Aida</h3>
+                <p class="text-neon-green mb-1 md:mb-2 text-center">Piloto Reserva</p>
+                <p class="text-center text-xs md:text-sm">Kensuke é outro colega de Shinji, um entusiasta de tecnologia e combate, que se torna piloto reserva da EVA após vivenciar experiências traumáticas. Ele busca entender seu propósito em um mundo devastado pelos Anjos, enquanto lida com as mudanças ao seu redor.</p>
+                <div class="sync-container">
+                    <div class="sync-bar sync-green" data-percent="30"></div>
+                </div>
+                <p class="sync-text text-neon-green">Sincronização: <span class="sync-value">30</span>%</p>
+            </div>
+
+            <!-- Personagens Secundários -->
+        <!-- Kaji Ryoji -->
+<div class="character-card rounded-lg overflow-hidden neon-border-red p-4 md:p-6 flex flex-col items-center">
+    <div class="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden neon-border-red mb-3 md:mb-4">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSLfBXfYmonJisH1dzquZfPhK6BmO6Q8jLPw&s" 
+            alt="Kaji Ryoji" 
+            class="w-full h-full object-cover">
+    </div>
+    <h3 class="text-lg md:text-xl text-neon-red orbitron mb-1 md:mb-2 text-center">Kaji Ryoji</h3>
+    <p class="text-neon-red mb-1 md:mb-2 text-center">Agente da NERV</p>
+    <p class="text-center text-xs md:text-sm">Kaji é um agente duplo carismático e misterioso, envolvido com informações confidenciais dentro e fora da NERV. Sua habilidade de navegar entre os mundos de espionagem e estratégia o coloca em uma posição única, além de seu papel importante no Projeto de Instrumentalidade.</p>
+    <div class="sync-container">
+        <div class="sync-bar sync-red" data-percent="50"></div>
+    </div>
+    <p class="sync-text text-neon-red">Sincronização: <span class="sync-value">50</span>%</p>
+</div>
+
+<!-- Naoko Akagi -->
+<div class="character-card rounded-lg overflow-hidden neon-border-green p-4 md:p-6 flex flex-col items-center">
+    <div class="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden neon-border-green mb-3 md:mb-4">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRq6TOcreW65LoHSnUBLj9WlFsZwPpm4-fM_ffZBeeRlCv127Hu8K0yt4wja3ymLUk_2ws&usqp=CAU" 
+            alt="Naoko Akagi" 
+            class="w-full h-full object-cover">
+    </div>
+    <h3 class="text-lg md:text-xl text-neon-green orbitron mb-1 md:mb-2 text-center">Naoko Akagi</h3>
+    <p class="text-neon-green mb-1 md:mb-2 text-center">Mãe de Ritsuko</p>
+    <p class="text-center text-xs md:text-sm">Naoko é uma cientista brilhante e a mãe de Ritsuko. Ela foi fundamental para a criação das Evas, mas seu destino trágico e sua obsessão com o trabalho e a ciência acabam levando a um fim doloroso.</p>
+    <div class="sync-container">
+        <div class="sync-bar sync-green" data-percent="60"></div>
+    </div>
+    <p class="sync-text text-neon-green">Sincronização: <span class="sync-value">60</span>%</p>
+</div>
+
+<!-- Kozo Fuyutsuki -->
+<div class="character-card rounded-lg overflow-hidden neon-border-purple p-4 md:p-6 flex flex-col items-center">
+    <div class="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden neon-border-purple mb-3 md:mb-4">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT-P4RqbRGdFrdLBchs4Qvlg5c66VG4iFEAw&s" 
+            alt="Kozo Fuyutsuki" 
+            class="w-full h-full object-cover">
+    </div>
+    <h3 class="text-lg md:text-xl text-neon-purple orbitron mb-1 md:mb-2 text-center">Kozo Fuyutsuki</h3>
+    <p class="text-neon-purple mb-1 md:mb-2 text-center">Vice-comandante da NERV</p>
+    <p class="text-center text-xs md:text-sm">Kozo é o vice-comandante da NERV, sendo a voz da razão e equilíbrio dentro da organização. Seu papel é essencial para supervisionar as operações e manter a estabilidade na estrutura de poder, especialmente diante dos dilemas morais e éticos do Projeto de Instrumentalidade</p>
+    <div class="sync-container">
+        <div class="sync-bar sync-purple" data-percent="70"></div>
+    </div>
+    <p class="sync-text text-neon-purple">Sincronização: <span class="sync-value">70</span>%</p>
+</div>
+
+<!-- Pen Pen -->
+<div class="character-card rounded-lg overflow-hidden neon-border-yellow p-4 md:p-6 flex flex-col items-center">
+    <div class="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden neon-border-yellow mb-3 md:mb-4">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSOzqv_QdMS_UK6EbSWqZDPRux3kG81BetAg&s" 
+            alt="Pen Pen" 
+            class="w-full h-full object-cover">
+    </div>
+    <h3 class="text-lg md:text-xl text-neon-yellow orbitron mb-1 md:mb-2 text-center">Pen Pen</h3>
+    <p class="text-neon-yellow mb-1 md:mb-2 text-center">Animal de Estimação</p>
+    <p class="text-center text-xs md:text-sm">Pen Pen é o adorável animal de estimação de Misato, uma espécie de pinguim. Ele traz leveza e momentos de fofura, servindo como uma presença reconfortante em meio ao caos que cerca os personagens principais.</p>
+    <div class="sync-container">
+        <div class="sync-bar sync-yellow" data-percent="30"></div>
+    </div>
+    <p class="sync-text text-neon-yellow">Sincronização: <span class="sync-value">30</span>%</p>
+</div>
+
+<!-- Makoto Hyuga -->
+<div class="character-card rounded-lg overflow-hidden neon-border-blue p-4 md:p-6 flex flex-col items-center">
+    <div class="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden neon-border-blue mb-3 md:mb-4">
+        <img src="https://pbs.twimg.com/media/FWbZ5xHagAAbSyl.jpg" 
+            alt="Makoto Hyuga" 
+            class="w-full h-full object-cover">
+    </div>
+    <h3 class="text-lg md:text-xl text-neon-blue orbitron mb-1 md:mb-2 text-center">Makoto Hyuga</h3>
+    <p class="text-neon-blue mb-1 md:mb-2 text-center">Comandante Técnico</p>
+    <p class="text-center text-xs md:text-sm">Makoto é o comandante técnico da NERV, desempenhando um papel crucial no monitoramento das Evas durante as operações. Ele é um membro fundamental da equipe, sempre atento às questões técnicas e operacionais que surgem nas batalhas contra os Anjos.</p>
+    <div class="sync-container">
+        <div class="sync-bar sync-blue" data-percent="75"></div>
+    </div>
+    <p class="sync-text text-neon-blue">Sincronização: <span class="sync-value">75</span>%</p>
+</div>
+
+<!-- Shigeru Aoba -->
+<div class="character-card rounded-lg overflow-hidden neon-border-orange p-4 md:p-6 flex flex-col items-center">
+    <div class="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden neon-border-orange mb-3 md:mb-4">
+        <img src="https://cdn.myanimelist.net/r/200x268/images/characters/15/145219.jpg?s=e41eafdc906e7f6114701ec4f9630f83" 
+            alt="Shigeru Aoba" 
+            class="w-full h-full object-cover">
+    </div>
+    <h3 class="text-lg md:text-xl text-neon-orange orbitron mb-1 md:mb-2 text-center">Shigeru Aoba</h3>
+    <p class="text-neon-orange mb-1 md:mb-2 text-center">Oficial da NERV</p>
+    <p class="text-center text-xs md:text-sm">Shigeru é um oficial da NERV, responsável pela coordenação das operações de monitoramento e apoio ao comando central. Sua lealdade à NERV e sua habilidade técnica são vitais para o bom funcionamento da organização nas batalhas e na coleta de informações.</p>
+    <div class="sync-container">
+        <div class="sync-bar sync-orange" data-percent="60"></div>
+    </div>
+    <p class="sync-text text-neon-orange">Sincronização: <span class="sync-value">60</span>%</p>
+</div>
+
+<!-- Maya Ibuki -->
+<div class="character-card rounded-lg overflow-hidden neon-border-purple p-4 md:p-6 flex flex-col items-center">
+    <div class="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden neon-border mb-3 md:mb-4">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIwPJYEAAkR87rjfAKBYNGzb75BzclSKaAbg&s" 
+            alt="Maya Ibuki" 
+            class="w-full h-full object-cover">
+    </div>
+    <h3 class="text-lg md:text-xl text-neon-white orbitron mb-1 md:mb-2 text-center">Maya Ibuki</h3>
+    <p class="text-neon-purple mb-1 md:mb-2 text-center">Operadora de Computador</p>
+    <p class="text-center text-xs md:text-sm">Maya Ibuki é uma operadora de computador altamente competente da NERV, especializada em análise de dados e monitoramento das operações das Evas. Embora sua personalidade seja mais reservada e introvertida, ela desempenha um papel crucial no fornecimento de suporte técnico durante os confrontos com os Anjos. Sua expertise em sistemas e sua calma sob pressão a tornam uma das membros mais confiáveis da equipe, sempre mantendo a NERV funcionando de maneira eficiente.</p>
+    <div class="sync-container">
+        <div class="sync-bar sync-purple" data-percent="65"></div>
+    </div>
+    <p class="sync-text text-neon-purple">Sincronização: <span class="sync-value">65</span>%</p>
+</div>
+
+        </div>
+    </div>
+</section>
+
+    <!-- Seção Angel Archive -->
+    <section class="bg-black bg-opacity-90 mobile-spacing">
+        <div class="section-container">
+            <h2 class="text-2xl md:text-4xl text-center text-neon-red orbitron mb-8 md:mb-12">ARQUIVO DE ANJOS</h2>
+
+    <!-- Radar de Anjos -->
+<div class="neon-border-red p-4 md:p-6 rounded-lg mb-8 md:mb-12">
+    <h3 class="text-xl text-neon-red orbitron mb-4 text-center md:text-left">SISTEMA DE DETECÇÃO ATIVA</h3>
+    <div class="radar">
+        <div class="angel-dot" style="top: 30%; left: 60%;"></div>
+        <div class="angel-dot" style="top: 60%; left: 20%;"></div>
+    </div>
+    <p class="text-center text-neon-green mt-4">2 ANJOS DETECTADOS NO ESPAÇO AÉREO DE TÓQUIO-3</p>
+</div>
+
+            <!-- Cards de Anjos -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                <!-- Adam -->
+                <div class="angel-card neon-border-red p-3 md:p-4 rounded-lg">
+                    <img src="https://preview.redd.it/5eclfz5s83gd1.png?auto=webp&s=ff89d53e5e8a98fe98adddeca166c4ed757c0cc8" 
+                        alt="Adam" class="w-full h-48 object-cover mb-3 rounded">
+                    <h3 class="text-neon-blue orbitron text-center">Adam</h3>
+                    <p class="text-sm mb-2 text-center">1º Anjo | Código: ADM-01</p>
+                    <div class="flex justify-between text-xs mb-2">
+                        <span class="text-neon-pink">Campo AT: ★★★★★</span>
+                        <span class="text-neon-green">Fraqueza: Lança de Longinus</span>
+                    </div>
+                    <p class="text-xs text-center">O ser primordial e progenitor dos Anjos. Seu despertar resultou no Segundo Impacto, alterando irreversivelmente o destino da Terra. Foi selado e reduzido a um embrião pela Lança de Longinus para impedir sua regeneração completa.</p>
+                </div>
+
+                <!-- Lilith -->
+                <div class="angel-card neon-border-red p-3 md:p-4 rounded-lg">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/c/c7/Lilith_Evangelion.jpg" 
+                        alt="Lilith" class="w-full h-48 object-cover mb-3 rounded">
+                    <h3 class="text-neon-red orbitron text-center">Lilith</h3>
+                    <p class="text-sm mb-2 text-center">2º Anjo | Código: LIL-02</p>
+                    <div class="flex justify-between text-xs mb-2">
+                        <span class="text-neon-pink">Campo AT: ★★★★★</span>
+                        <span class="text-neon-green">Fraqueza: Vontade Humana</span>
+                    </div>
+                    <p class="text-xs text-center">A segunda entidade primordial e origem da humanidade. Quando desperta, inicia o Terceiro Impacto, dissolvendo todos os humanos em LCL. Seu fim ocorreu quando Shinji rejeitou a fusão das almas, encerrando a Instrumentalização.</p>
+                </div>
+
+                <!-- Sachiel -->
+                <div class="angel-card neon-border-blue p-3 md:p-4 rounded-lg">
+                    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/596a52ce-694e-4fe9-b1b0-dbf896f209a0/d6pr6pj-777489b9-d891-41c2-b4ea-ba172072d2ee.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzU5NmE1MmNlLTY5NGUtNGZlOS1iMWIwLWRiZjg5NmYyMDlhMFwvZDZwcjZwai03Nzc0ODliOS1kODkxLTQxYzItYjRlYS1iYTE3MjA3MmQyZWUuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.lMkKR5FRLS1x2nEFP-RkaWOmalOFStgSAwFL2ULKk5c" 
+                        alt="Sachiel" class="w-full h-48 object-cover mb-3 rounded">
+                    <h3 class="text-neon-blue orbitron text-center">Sachiel</h3>
+                    <p class="text-sm mb-2 text-center">3º Anjo | Código: SAC-03</p>
+                    <div class="flex justify-between text-xs mb-2">
+                        <span class="text-neon-pink">Campo AT: ★★★★☆</span>
+                        <span class="text-neon-green">Fraqueza: Medula Espinhal</span>
+                    </div>
+                    <p class="text-xs text-center">O primeiro Anjo a atacar Tóquio-3, adaptando-se rapidamente ao combate. Sua estrutura óssea e regeneração o tornavam resistente, mas foi derrotado quando a Unidade Eva-01 perfurou sua medula espinhal, destruindo seu sistema nervoso.</p>
+                </div>
+
+                <!-- Shamshel -->
+                <div class="angel-card neon-border-red p-3 md:p-4 rounded-lg">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTge7HeLZnbz3T8gbGP-hd2FbCr0wzYFsImx4qR-pVKCaeTQ29VJjhzsmVRZFmwx_G7W-U&usqp=CAU" 
+                        alt="Shamshel" class="w-full h-48 object-cover mb-3 rounded">
+                    <h3 class="text-neon-green orbitron text-center">Shamshel</h3>
+                    <p class="text-sm mb-2 text-center">4º Anjo | Código: SHA-04</p>
+                    <div class="flex justify-between text-xs mb-2">
+                        <span class="text-neon-pink">Campo AT: ★★★☆☆</span>
+                        <span class="text-neon-green">Fraqueza: Núcleo</span>
+                    </div>
+                    <p class="text-xs text-center">Com forma semelhante a um cefalópode e chicotes de energia cortantes, Shamshel atacou Tóquio-3 tentando perfurar os defensores. Seu ponto fraco era seu núcleo exposto, que foi destruído pela Faca Progressiva da Eva-01.</p>
+                </div>
+
+                <!-- Ramiel -->
+                <div class="angel-card neon-border-red p-3 md:p-4 rounded-lg">
+                    <img src="http://i.imgur.com/HiZYHIo.png" 
+                        alt="Ramiel" class="w-full h-48 object-cover mb-3 rounded">
+                    <h3 class="text-neon-blue orbitron text-center">Ramiel</h3>
+                    <p class="text-sm mb-2 text-center">5º Anjo | Código: RAM-05</p>
+                    <div class="flex justify-between text-xs mb-2">
+                        <span class="text-neon-pink">Campo AT: ★★★★★</span>
+                        <span class="text-neon-green">Fraqueza: Rifle de Pósitrons</span>
+                    </div>
+                    <p class="text-xs text-center">Um Anjo em forma de octaedro com um poderoso feixe de energia capaz de destruir alvos instantaneamente. Seu Campo AT era impenetrável, mas ele foi eliminado com um tiro de longo alcance do Rifle de Pósitrons, disparado no momento exato em que ele abria sua defesa para atacar.</p>
+                </div>
+
+                <!-- Gaghiel -->
+                <div class="angel-card neon-border-red p-3 md:p-4 rounded-lg">
+                    <img src="https://pm1.aminoapps.com/6216/8fb95a22601c607dfea0c1ea727592ae1a41c01f_hq.jpg" 
+                        alt="Gaghiel" class="w-full h-48 object-cover mb-3 rounded">
+                    <h3 class="text-neon-blue orbitron text-center">Gaghiel</h3>
+                    <p class="text-sm mb-2 text-center">6º Anjo | Código: GAG-06</p>
+                    <div class="flex justify-between text-xs mb-2">
+                        <span class="text-neon-pink">Campo AT: ★★★★☆</span>
+                        <span class="text-neon-green">Fraqueza: Combate subaquático</span>
+                    </div>
+                    <p class="text-xs text-center">Um Anjo marinho que atacou a frota da ONU no oceano. Sua armadura o tornava resistente, mas sua fraqueza era a vulnerabilidade à pressão extrema em grandes profundidades. Foi derrotado quando a Eva-02 o forçou a mergulhar rapidamente enquanto detonava cargas explosivas internas.</p>
+                </div>
+
+                <!-- Israfel -->
+                <div class="angel-card neon-border-red p-3 md:p-4 rounded-lg">
+                    <img src="https://pm1.aminoapps.com/6947/f3daaff7e9ebf1731a5b3899f5f212bbf769b96er1-640-454v2_hq.jpg" 
+                        alt="Israfel" class="w-full h-48 object-cover mb-3 rounded">
+                    <h3 class="text-neon-pink orbitron text-center">Israfel</h3>
+                    <p class="text-sm mb-2 text-center">7º Anjo | Código: ISR-07</p>
+                    <div class="flex justify-between text-xs mb-2">
+                        <span class="text-neon-pink">Campo AT: ★★★★☆</span>
+                        <span class="text-neon-green">Fraqueza: Ataque sincronizado</span>
+                    </div>
+                    <p class="text-xs text-center">Possuía um corpo duplo capaz de se dividir e se recombinar, tornando-se quase imortal. Sua fraqueza era a necessidade de destruir ambos os corpos simultaneamente, o que foi alcançado por uma sincronização perfeita entre as Unidades Eva-01 e Eva-02.</p>
+                </div>
+
+                <!-- Sandalphon -->
+                <div class="angel-card neon-border-blue p-3 md:p-4 rounded-lg">
+                    <img src="https://i.imgur.com/PzzvJFM.jpeg" 
+                        alt="Sandalphon" class="w-full h-48 object-cover mb-3 rounded">
+                    <h3 class="text-neon-green orbitron text-center">Sandalphon</h3>
+                    <p class="text-sm mb-2 text-center">8º Anjo | Código: SAN-08</p>
+                    <div class="flex justify-between text-xs mb-2">
+                        <span class="text-neon-pink">Campo AT: ★★★☆☆</span>
+                        <span class="text-neon-green">Fraqueza: Temperaturas extremas</span>
+                    </div>
+                    <p class="text-xs text-center">Descoberto ainda em estágio larval dentro do magma de um vulcão, Sandalphon poderia ter se tornado uma ameaça terrível se tivesse evoluído. No entanto, sua fraqueza era sua dependência de um ambiente quente, sendo eliminado ao ser congelado subitamente durante a batalha.</p>
+                </div>
+
+                <!-- Matarael -->
+                <div class="angel-card neon-border-blue p-3 md:p-4 rounded-lg">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZrOW5k765dlri-HOE4q3Bld1WcMRExjokbg&s" 
+                        alt="Matarael" class="w-full h-48 object-cover mb-3 rounded">
+                    <h3 class="text-neon-blue orbitron text-center">Matarael</h3>
+                    <p class="text-sm mb-2 text-center">9º Anjo | Código: MAT-09</p>
+                    <div class="flex justify-between text-xs mb-2">
+                        <span class="text-neon-pink">Campo AT: ★★★☆☆</span>
+                        <span class="text-neon-green">Fraqueza: Olho</span>
+                    </div>
+                    <p class="text-xs text-center">Uma criatura parecida com uma aranha gigante, capaz de excretar ácido altamente corrosivo. Seu único ponto vulnerável era seu grande olho central, que foi alvejado e destruído em um ataque coordenado das Unidades Eva.</p>
+                </div>
+
+                <!-- Zeruel -->
+                <div class="angel-card neon-border-red p-3 md:p-4 rounded-lg">
+                    <img src="https://preview.redd.it/8h6rgj4fr1381.gif?format=png8&s=d4d6209f53c655529a58ec085a4ebc8218af052f" 
+                        alt="Zeruel" class="w-full h-48 object-cover mb-3 rounded">
+                    <h3 class="text-neon-pink orbitron text-center">Zeruel</h3>
+                    <p class="text-sm mb-2 text-center">10º Anjo | Código: ZER-10</p>
+                    <div class="flex justify-between text-xs mb-2">
+                        <span class="text-neon-pink">Campo AT: ★★★★★</span>
+                        <span class="text-neon-green">Fraqueza: Ataque interno</span>
+                    </div>
+                    <p class="text-xs text-center">Considerado o Anjo mais forte em combate direto, possuía um Campo AT extremamente denso e lâminas de ataque devastadoras. Nenhuma arma convencional conseguia feri-lo, mas foi derrotado quando a Eva-01 o devorou e absorveu seu núcleo, adquirindo sua energia.</p>
+                </div>
+
+                <!-- Sahaquiel -->
+                <div class="angel-card neon-border-red p-3 md:p-4 rounded-lg">
+                    <img src="https://wiki.evageeks.org/images/thumb/a/a0/12_C250_sahaquiel.jpg/260px-12_C250_sahaquiel.jpg" 
+                        alt="Sahaquiel" class="w-full h-48 object-cover mb-3 rounded">
+                    <h3 class="text-neon-pink orbitron text-center">Sahaquiel</h3>
+                    <p class="text-sm mb-2 text-center">11º Anjo | Código: SAH-11</p>
+                    <div class="flex justify-between text-xs mb-2">
+                        <span class="text-neon-pink">Campo AT: ★★★★★</span>
+                        <span class="text-neon-green">Fraqueza: Ataque de longo alcance</span>
+                    </div>
+                    <p class="text-xs text-center">Uma ameaça orbital gigante que tentava destruir Tóquio-3 se lançando contra a cidade. Sua fraqueza era sua incapacidade de se defender no momento da descida, permitindo que as Unidades Eva o interceptassem no ar antes do impacto.</p>
+                </div>
+
+                <!-- Iruel -->
+                <div class="angel-card neon-border-green p-3 md:p-4 rounded-lg">
+                    <img src="https://static1.srcdn.com/wordpress/wp-content/uploads/2023/01/evangelion-ireul.jpg" 
+                        alt="Iruel" class="w-full h-48 object-cover mb-3 rounded">
+                    <h3 class="text-neon-green orbitron text-center">Iruel</h3>
+                    <p class="text-sm mb-2 text-center">12º Anjo | Código: IRU-12</p>
+                    <div class="flex justify-between text-xs mb-2">
+                        <span class="text-neon-pink">Campo AT: ★★☆☆☆</span>
+                        <span class="text-neon-green">Fraqueza: Antivírus</span>
+                    </div>
+                    <p class="text-xs text-center">Um Anjo microscópico composto por nanomáquinas que tentou infectar o sistema MAGI. Ele foi derrotado quando os supercomputadores enganaram sua programação, forçando-o a se autodestruir.</p>
+                </div>
+
+                <!-- Leliel -->
+                <div class="angel-card neon-border-red p-3 md:p-4 rounded-lg">
+                    <img src="https://i.redd.it/evangelions-interpretation-of-leliel-the-angel-of-night-v0-ulcwzf9xm5rc1.jpg?width=2894&format=pjpg&auto=webp&s=933ef3c59f141c20133ef222fc9c462392a2b94f" 
+                        alt="Leliel" class="w-full h-48 object-cover mb-3 rounded">
+                    <h3 class="text-neon-blue orbitron text-center">Leliel</h3>
+                    <p class="text-sm mb-2 text-center">13º Anjo | Código: LEL-13</p>
+                    <div class="flex justify-between text-xs mb-2">
+                        <span class="text-neon-pink">Campo AT: ★★★★★</span>
+                        <span class="text-neon-green">Fraqueza: Escape interno</span>
+                    </div>
+                    <p class="text-xs text-center">Um Anjo com uma estrutura dimensional única, cujo corpo real era uma sombra em outra dimensão. Ele foi derrotado quando a Eva-01, presa dentro dele, rompeu sua estrutura interna para escapar.</p>
+                </div>
+
+                <!-- Bardiel -->
+                <div class="angel-card neon-border-red p-3 md:p-4 rounded-lg">
+                    <img src="https://preview.redd.it/what-would-have-happend-if-the-eva-03-hadnt-gotten-out-of-v0-3d4oh96dqnic1.jpeg?auto=webp&s=6bc96ed5975ec405a898227649bda2c15ea93f20" 
+                        alt="Bardiel" class="w-full h-48 object-cover mb-3 rounded">
+                    <h3 class="text-neon-pink orbitron text-center">Bardiel</h3>
+                    <p class="text-sm mb-2 text-center">14º Anjo | Código: BAR-14</p>
+                    <div class="flex justify-between text-xs mb-2">
+                        <span class="text-neon-pink">Campo AT: ★★★★☆</span>
+                        <span class="text-neon-green">Fraqueza: Congelamento</span>
+                    </div>
+                    <p class="text-xs text-center">Um Anjo parasita que infectou a Unidade Eva-03. Sua fraqueza era sua sensibilidade a altas voltagens, sendo derrotado quando a Eva-01, sob controle do Dummy System, eletrocutou e destruiu seu núcleo.</p>
+                </div>
+
+                <!-- Arael -->
+                <div class="angel-card neon-border-red p-3 md:p-4 rounded-lg">
+                    <img src="https://preview.redd.it/yd4c7cx5h4wc1.jpeg?auto=webp&s=ca843c3766f652a62219ac2e14112fcf27dce252" 
+                        alt="Arael" class="w-full h-48 object-cover mb-3 rounded">
+                    <h3 class="text-neon-green orbitron text-center">Arael</h3>
+                    <p class="text-sm mb-2 text-center">15º Anjo | Código: ARA-15</p>
+                    <div class="flex justify-between text-xs mb-2">
+                        <span class="text-neon-pink">Campo AT: ★★★★★</span>
+                        <span class="text-neon-green">Fraqueza: Rifle de pósitrons de longo alcance</span>
+                    </div>
+                    <p class="text-xs text-center">Esse Anjo atacava psicologicamente suas vítimas a partir da órbita da Terra. Sua única fraqueza era sua distância, permitindo que fosse alvejado por um disparo de longo alcance da Eva-00.</p>
+                </div>
+
+                <!-- Armisael -->
+                <div class="angel-card neon-border-red p-3 md:p-4 rounded-lg">
+                    <img src="https://images.saymedia-content.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cq_auto:eco%2Cw_1200/MTc0MDA3OTExODg0NzkzNzIz/strongest-angels-nge.png" 
+                        alt="Armisael" class="w-full h-48 object-cover mb-3 rounded">
+                    <h3 class="text-neon-blue orbitron text-center">Armisael</h3>
+                    <p class="text-sm mb-2 text-center">16º Anjo | Código: ARM-16</p>
+                    <div class="flex justify-between text-xs mb-2">
+                        <span class="text-neon-pink">Campo AT: ★★★★★</span>
+                        <span class="text-neon-green">Fraqueza: Auto-destruição</span>
+                    </div>
+                    <p class="text-xs text-center">Esse Anjo tentava se fundir fisicamente com os pilotos e Evas, ameaçando destruir sua individualidade. Ele foi destruído quando a Eva-00 se autodestruiu, levando-o junto.</p>
+                </div>
+
+                <!-- Tabris (Kaworu) -->
+                <div class="angel-card neon-border-red p-3 md:p-4 rounded-lg">
+                    <img src="https://upload.wikimedia.org/wikipedia/it/thumb/4/4b/Kaworu_Nagisa.jpg/330px-Kaworu_Nagisa.jpg" 
+                        alt="Tabris" class="w-full h-48 object-cover mb-3 rounded">
+                    <h3 class="text-neon-pink orbitron text-center">Tabris</h3>
+                    <p class="text-sm mb-2 text-center">17º Anjo | Código: TAB-17</p>
+                    <div class="flex justify-between text-xs mb-2">
+                        <span class="text-neon-pink">Campo AT: ★★★★★</span>
+                        <span class="text-neon-green">Fraqueza: Força de vontade</span>
+                    </div>
+                    <p class="text-xs text-center">Diferente dos outros, Kaworu possuía inteligência e livre arbítrio. Sua fraqueza não era física, mas emocional: ao perceber que a sobrevivência dos humanos dependia de sua morte, ele escolheu se sacrificar, permitindo que Shinji o eliminasse.</p>
+                </div>
+
+                <!-- Rei Ayanami -->
+                <div class="angel-card neon-border-blue p-3 md:p-4 rounded-lg">
+                    <img src="https://upload.wikimedia.org/wikipedia/pt/thumb/1/1d/Rei-Ayanami-Evangelion.PNG/250px-Rei-Ayanami-Evangelion.PNG" 
+                        alt="Rei Ayanami" class="w-full h-48 object-cover mb-3 rounded">
+                    <h3 class="text-neon-blue orbitron text-center">Rei Ayanami</h3>
+                    <p class="text-sm mb-2 text-center">Entidade Relacionada aos Anjos</p>
+                    <div class="flex justify-between text-xs mb-2">
+                        <span class="text-neon-blue">Campo AT: ★★★☆☆</span>
+                        <span class="text-neon-green">Fraqueza: Natureza existencial e a perda de identidade</span>
+                    </div>
+                    <p class="text-xs text-center">Rei Ayanami não é um Anjo primordial, mas ela contém a alma de Lilith, a segunda entidade primordial. Sua existência está ligada aos Anjos, mas sua função vai além. Criada a partir de células de Lilith, ela se torna uma peça chave na execução do Terceiro Impacto. Sua fraqueza está em sua natureza existencial e a perda de identidade, pois ela não possui um sentido próprio de ser, dependendo das manipulações externas para cumprir seu papel no destino da humanidade. Embora Rei morra em momentos cruciais da série, como durante o ataque de Armisael, seus clones perpetuam sua existência, mantendo a alma de Lilith intacta e possibilitando sua constante renovação.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria -->
+    <section class="bg-black bg-opacity-70 mobile-spacing">
+        <div class="section-container">
+            <h2 class="text-2xl md:text-4xl text-center text-neon-green orbitron mb-8 md:mb-12">GALERIA</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                <div class="overflow-hidden rounded-lg neon-border hover:neon-border-green transition-all duration-300">
+                    <img src="https://indigomusic.com/wp-content/uploads/2023/12/Untitled-design-82-min.png" 
+                        alt="Evangelion Unit-01" 
+                        class="w-full h-48 md:h-64 object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg neon-border hover:neon-border-green transition-all duration-300">
+                    <img src="https://i.redd.it/07t47omzdeh81.jpg" 
+                        alt="Shinji and Rei" 
+                        class="w-full h-48 md:h-64 object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg neon-border hover:neon-border-green transition-all duration-300">
+                    <img src="https://kanto.legiaodosherois.com.br/w760-h398-cfill/wp-content/uploads/2019/06/legiao_0FlN326EBwJLTHqAGkoVxQpcZmOibsdRC_ht7M9KWe.png.webp" 
+                        alt="Evangelion Units" 
+                        class="w-full h-48 md:h-64 object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg neon-border hover:neon-border-green transition-all duration-300">
+                    <img src="https://i.pinimg.com/736x/48/17/f9/4817f95f896704fa9d167c96acd0f380.jpg" 
+                        alt="Rei Ayanami" 
+                        class="w-full h-48 md:h-64 object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg neon-border hover:neon-border-green transition-all duration-300">
+                    <img src="https://images.saymedia-content.com/.image/c_limit%2Ccs_srgb%2Cq_auto:eco%2Cw_620/MTc2MjQ5NDk0Nzc3MTEyNDU1/5-horrific-ways-to-die-inside-an-eva-unit.webp" 
+                        alt="Asuka Langley" 
+                        class="w-full h-48 md:h-64 object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg neon-border hover:neon-border-green transition-all duration-300">
+                    <img src="https://i.imgur.com/9XgH7X5.jpg" 
+                        alt="NERV Headquarters" 
+                        class="w-full h-48 md:h-64 object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg neon-border hover:neon-border-green transition-all duration-300">
+                    <img  
+                        alt="NERV Headquarters" src="https://preview.redd.it/which-one-you-prefer-the-awakend-mode-or-berserk-mode-v0-1v35ny3pzvec1.jpg?width=564&format=pjpg&auto=webp&s=138eaff34d731f82f960c4801d1a065389e3268b"
+                        class="w-full h-48 md:h-64 object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg neon-border hover:neon-border-green transition-all duration-300">
+                    <img src="https://bancodeseries.com.br/images/episodes/thumbs/659830.jpg" 
+                        alt="NERV Headquarters" 
+                        class="w-full h-48 md:h-64 object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg neon-border hover:neon-border-green transition-all duration-300">
+                    <img src="https://paprikaaa.weebly.com/uploads/3/8/0/9/38096609/6015208_orig.jpg" 
+                        alt="NERV Headquarters" 
+                        class="w-full h-48 md:h-64 object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg neon-border hover:neon-border-green transition-all duration-300">
+                    <img src="https://preview.redd.it/zta10q7br74b1.jpg?width=640&crop=smart&auto=webp&s=803d3c346854267c36a7c8d3a46d5f7b1391f7c2" 
+                        alt="NERV Headquarters" 
+                        class="w-full h-48 md:h-64 object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg neon-border hover:neon-border-green transition-all duration-300">
+                    <img src="https://preview.redd.it/buc1jbqetwna1.jpg?auto=webp&s=2f7977bae66fa26a58e0317704bba90ab0b0d599" 
+                        alt="NERV Headquarters" 
+                        class="w-full h-48 md:h-64 object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg neon-border hover:neon-border-green transition-all duration-300">
+                    <img src="https://pbs.twimg.com/media/CW96FYKUAAEoMsp.png" 
+                        alt="NERV Headquarters" 
+                        class="w-full h-48 md:h-64 object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg neon-border hover:neon-border-green transition-all duration-300">
+                    <img src="https://64.media.tumblr.com/3a618929d24e4edf5bc6d698e82b5949/tumblr_inline_ovir5pOE3B1ur0nu7_640.jpg" 
+                        alt="NERV Headquarters" 
+                        class="w-full h-48 md:h-64 object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg neon-border hover:neon-border-green transition-all duration-300">
+                    <img src="https://img.odcdn.com.br/wp-content/uploads/2023/06/the-end-of-evangelion-1024x576.jpg" 
+                        alt="NERV Headquarters" 
+                        class="w-full h-48 md:h-64 object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg neon-border hover:neon-border-green transition-all duration-300">
+                    <img src="https://pm1.aminoapps.com/7028/ea1c2edffc0064ded4ee1278261a08f6ea22ca0dr1-716-539v2_uhq.jpg" 
+                        alt="NERV Headquarters" 
+                        class="w-full h-48 md:h-64 object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="py-6 md:py-8 bg-black neon-border-t">
+        <div class="section-container text-center">
+            <div class="flex justify-center space-x-4 md:space-x-6 mb-4 md:mb-6">
+                <a href="https://www.instagram.com/bh.moura28?igsh=cmY1d2kyZ3pheDhl" class="text-neon-green hover:text-neon-purple text-lg md:text-xl" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/bruno-henrique2804" class="text-neon-green hover:text-neon-purple text-lg md:text-xl" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/bruno-moura-2804" class="text-neon-green hover:text-neon-purple text-lg md:text-xl" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+            <p class="text-neon-purple orbitron text-sm md:text-base">© 2025 NERV - DIVISÃO DE COMUNICAÇÕES</p>
+            <p class="text-xs md:text-sm text-gray-400 mt-1 md:mt-2">"God's in His heaven. All's right with the world."</p>
+        </div>
+    </footer>
+
+    <script>
+        const audio = document.getElementById('openingAudio');
+        const audioControl = document.getElementById('audioControl');
+        let isPlaying = false;
+
+        // Controle manual (play/pause)
+        audioControl.addEventListener('click', () => {
+            if (isPlaying) {
+                audio.pause();
+                audioControl.innerHTML = '<i class="fas fa-volume-mute text-xl"></i>';
+            } else {
+                audio.play()
+                    .then(() => {
+                        audioControl.innerHTML = '<i class="fas fa-volume-up text-xl"></i>';
+                    })
+                    .catch(error => {
+                        alert("Clique em 'Tocar' para ativar o áudio!");
+                    });
+            }
+            isPlaying = !isPlaying;
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animação das barras de sincronização
+            const syncBars = document.querySelectorAll('.sync-bar');
+            const syncValues = document.querySelectorAll('.sync-value');
+            
+            syncBars.forEach((bar, index) => {
+                const targetPercent = parseInt(bar.getAttribute('data-percent'));
+                const valueElement = syncValues[index];
+                
+                // Animação com delay progressivo
+                setTimeout(() => {
+                    bar.style.width = `${targetPercent}%`;
+                    animateCounter(valueElement, targetPercent, 1500);
+                }, index * 200);
+            });
+            
+            // Função para animar contador numérico
+            function animateCounter(element, target, duration) {
+                const start = 0;
+                const increment = target / (duration / 16);
+                let current = start;
+                
+                const animate = () => {
+                    current += increment;
+                    if (current < target) {
+                        element.textContent = Math.floor(current) + '%';
+                        requestAnimationFrame(animate);
+                    } else {
+                        element.textContent = target + '%';
+                    }
+                };
+                
+                animate();
+            }
+            
+            // Contador LCL animado
+            const lclCounter = document.getElementById('lclCounter');
+            animateCounter(lclCounter, 1428, 3000);
+            
+            // Efeito de digitação
+            const text = "新世紀エヴァンゲリオン";
+            const typingElement = document.querySelector('.typing-effect');
+            let i = 0;
+            
+            function typeWriter() {
+                if (i < text.length) {
+                    typingElement.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 150);
+                } else {
+                    typingElement.classList.remove('typing-effect');
+                }
+            }
+            
+            typeWriter();
+            
+            // Controle de áudio
+            const audioControl = document.getElementById('audioControl');
+            let isPlaying = false;
+            
+            audioControl.addEventListener('click', () => {
+                if (isPlaying) {
+                    audioControl.innerHTML = '<i class="fas fa-volume-mute text-xl"></i>';
+                } else {
+                    audioControl.innerHTML = '<i class="fas fa-volume-up text-xl"></i>';
+                }
+                isPlaying = !isPlaying;
+            });
+            
+            // Efeito aleatório para os pontos do radar
+            document.querySelectorAll('.angel-dot').forEach(dot => {
+                dot.style.animationDelay = `${Math.random() * 2}s`;
+            });
+            
+            // Pré-carregar imagens
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                if (!img.complete) {
+                    img.classList.add('image-loading');
+                    img.onload = function() {
+                        this.classList.remove('image-loading');
+                    };
+                    img.onerror = function() {
+                        this.classList.remove('image-loading');
+                        this.src = 'https://via.placeholder.com/300x300/111/9d00ff?text=Image+Not+Found';
+                    };
+                }
+            });
+        });
+    </script>
+</body>
+</html>
